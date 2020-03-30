@@ -26,7 +26,7 @@ int main(){
 				end = stop;
 			}
 		}*/
-		int start = 0, end = 0, sum = sequence[0], max = 0;	//sum & max表示意义相反 
+		int start = 0, end = 0, sum = sequence[0], max = 0;	//sum & max表示意义相反，注意sum的初始化，可能存在一开始就是负数，故不能设置为0
 		int start_now = 0, end_now = 0;
 		for(int number = 0; number < count; number++){
 			if(max >= 0) {
