@@ -1,3 +1,5 @@
+/*题目：求集合[n,m]中满足每位数字与相邻数字均相差1且不是一位数的整数个数*/ 
+
 #include <iostream>
 using namespace std;
 
