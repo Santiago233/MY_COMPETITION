@@ -63,7 +63,7 @@ MISC
 
 32.Convert：二进制转十六进制，然后生成解压缩RAR文件，再查看详细信息里面的base64解密
 
-二、WEB
+WEB
 1.web2:直接查看源代码看注释
 
 2.计算器：直接wxml里面修改maxlength
@@ -88,7 +88,7 @@ MISC
 
 12.头等舱：利用burpsuit在线抓包，抓包后重放查看……怎么想的都不知道
 
-13.网站被黑：主要就是利用神器御风，找到影藏在背后的网页，之后再burpsuite强行爆破就好了（导入字典，最后选择长度不一样的作为尝试），提示社区版本无法爆破
+13.网站被黑：主要就是利用神器御剑，找到影藏在背后的网页，之后再burpsuite强行爆破就好了（导入字典，最后选择长度不一样的作为尝试），提示社区版本无法爆破
 
 14.web4：其实我没看懂源码，直接把一个比较的数据放进去比较了一下就得到key了，注意：控制台里面可以自动转化escape加密
 
@@ -105,9 +105,9 @@ MISC
 20.成绩单：sql手工注入三连（甚至可以说是四连：默写一遍）：
 先检查需要填入的变量名称，得到为id：
 id=1’ union select 1,2,3,database()# ->得到数据库名称
-id=1’ union select 1,2,3,table_name from information_schema.tables where table_schema=database()#->得到表名fl4g（神奇得不行，需要复制后重新输入一遍’）
-id=1’ union select 1,2,3,column_name from information_schema.columns where table_name=’fl4g’#->得到列名skctf_flag
-id=1’ union select 1,2,3,skctf_flag from fl4g#->得到flag；
+id=1’ union select 1,2,3,table_name from information_schema.tables where table_schema=database()# ->得到表名fl4g（神奇得不行，需要复制后重新输入一遍’）
+id=1’ union select 1,2,3,column_name from information_schema.columns where table_name=’fl4g’# ->得到列名skctf_flag
+id=1’ union select 1,2,3,skctf_flag from fl4g# ->得到flag；
 group_concat(例如’table name’，主要是让所有的显示在一行，最好都加上，因为自己被坑了)
 
 21.秋名山老司机：编写脚本，利用requests.get正则表达式获取网页里面的关系式内容并进行处理，得到的结果在requests.post传到网页获取flag（PS：因为网页是刷新改变的，所以需要使用requests.session()）
@@ -116,7 +116,7 @@ group_concat(例如’table name’，主要是让所有的显示在一行，最
 
 23.cookies欺骗：base64解码发现可以修改filename文件名得到源代码，一般需要多试试index.php，得到源代码解析，发现需要在header响应头中添加margin头，然后就很简单了
 
-24.never give up：都是些什么神仙题目……查看源代码里面的注释其实是个网页(所有的网页都是在test目录下的)…然后网页还被重定向了，所以只能利用view-source(网页地址)，肉眼可见的部分base64解码，url解码，得到源代码…现在问题来了，都不要看逻辑的嘛？？？直接就可以访问那个目录下的文件？我透……（而且我不是很明白为什么不能复现别人wp的结果）
+24.never give up：都是些什么神仙题目……查看源代码里面的注释其实是个网页(所有的网页都是在test目录下的)…然后网页还被重定向了，所以只能利用view-source(网页地址)，肉眼可见的部分base64解码，url解码，得到源代码…现在问题来了，都不要看逻辑的嘛？？？直接就可以访问那个目录下的文件？我透……（而且我不是很明白为什么我不能复现别人wp的结果）
 其一：file_get_contents需要使用PHP伪协议，输入流(php://input)——不能出现某一字符但是后面必须使用
 其二：需要使用eregi()的空字符检测漏洞，以\x00（url编码：%00）
 其三：PHP字符与int型数值弱比较，若字符以数字开头则数字作为若转换的结果，不然就是0
